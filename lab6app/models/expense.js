@@ -3,7 +3,9 @@ class Expense {
    Represents a Expense.
    @constructor
    @param {date} date - The date of the expense.
-   @param {float} income - The author of the book.
+   @param {float} income - The income.
+   @param {float} expense - The expense.
+   @param {string} detail - detail.
  */
   constructor(date, income, expense, detail) {
     this.date = date;
@@ -38,15 +40,15 @@ class ExpenseModel {
   getAll() {
     return this.expenses;
   }
-
+  /**@return {array} */
   getTotalIncome() {
     return this.expenses.reduce((sum, exp) => sum + exp.income, 0);
   }
-
+  /**@return {array} */
   getTotalExpense() {
     return this.expenses.reduce((sum, exp) => sum + exp.expense, 0);
   }
-
+ /**@return {array} */
   getMoneyLeft() {
     return this.getTotalIncome() - this.getTotalExpense();
   }
